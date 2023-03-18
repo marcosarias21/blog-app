@@ -2,9 +2,10 @@ import ReactDOM from 'react-dom/client';
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import {
-  ApolloClient, ApolloProvider, gql, HttpLink, InMemoryCache,
+  ApolloClient, ApolloProvider, HttpLink, InMemoryCache,
 } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import { theme } from './theme/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -17,24 +18,18 @@ const client = new ApolloClient({
   }),
 });
 
-const query = gql`
-  query{
-     allUser{
-      username
-     }
-  }
-`;
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+            <SnackbarProvider maxSnack={3} autoHideDuration={2000}>
+              <CssBaseline />
+              <App />
+            </SnackbarProvider>
+        </BrowserRouter>
+      </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>,
 );
