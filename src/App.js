@@ -1,13 +1,11 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
+import { Login } from './pages/Login';
 
 const App = () => {
   return (
-    <Container>
-      <Box>
-        <Typography variant='h1'>Hola</Typography>
-        <Typography variant='p'>Advanced</Typography>
-      </Box>
-    </Container>
+    <Routes>
+      <Route path='' element={<Login />} />
+    </Routes>
   );
 };
 
