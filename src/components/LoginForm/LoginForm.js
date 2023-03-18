@@ -2,18 +2,25 @@ import { useMutation } from '@apollo/client';
 import {
   Box, Button, FormControl, Link, TextField, Typography,
 } from '@mui/material';
+import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { LOGIN } from '../../login/graphql-mutations';
 
 const LoginForm = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const [login, result] = useMutation(LOGIN, {
     onError: (error) => {
-      console.log(error.graphQLErrors[0].message);
+      enqueueSnackbar('User or Password invalid', {
+        variant: 'error',
+        anchorOrigin: {
+          vertical: 'bottom',
+          horizontal: 'right',
+        },
+      });
     },
   });
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  console.log(password);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +32,16 @@ const LoginForm = () => {
   useEffect(() => {
     if (result.data) {
       const token = result.data.login.value;
-      if (token) window.location.href = '/home';
+      enqueueSnackbar('Successfully login', {
+        variant: 'success',
+        anchorOrigin: {
+          vertical: 'bottom',
+          horizontal: 'right',
+        },
+      });
+      setTimeout(() => {
+        if (token) window.location.href = '/home';
+      }, 1000);
     }
   }, [result.data]);
 
