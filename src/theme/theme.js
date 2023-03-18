@@ -3,15 +3,16 @@ import Satoshi from '../assets/font/Satoshi-Variable.ttf';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: 'Satoshi, Sans-serif',
+    fontFamily: 'Satoshi',
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          url(${Satoshi})
-        }
-      `,
+      styleOverrides: {
+        '@font-face': {
+          fontFamily: 'Satoshi',
+          src: `url(${Satoshi})`,
+        },
+      },
     },
   },
 });

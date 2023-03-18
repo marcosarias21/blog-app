@@ -1,13 +1,14 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
-import './index.css';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import {
-  ApolloClient, ApolloProvider, HttpLink, InMemoryCache,
+  ApolloClient, ApolloProvider, gql, HttpLink, InMemoryCache,
 } from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
 import { theme } from './theme/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -16,14 +17,24 @@ const client = new ApolloClient({
   }),
 });
 
+const query = gql`
+  query{
+     allUser{
+      username
+     }
+  }
+`;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
 );
