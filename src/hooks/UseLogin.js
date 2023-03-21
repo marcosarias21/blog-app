@@ -1,9 +1,11 @@
 import { useMutation } from '@apollo/client';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LOGIN } from '../login/graphql-mutations';
 
 const UseLogin = () => {
+  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [login, result] = useMutation(LOGIN, {
     onError: () => {
@@ -28,7 +30,7 @@ const UseLogin = () => {
         },
       });
       setTimeout(() => {
-        if (token) window.location.href = '/home';
+        if (token) navigate('/home');
       }, 1000);
     }
   }, [result.data]);
