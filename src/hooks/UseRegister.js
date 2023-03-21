@@ -1,9 +1,11 @@
 import { useMutation } from '@apollo/client';
 import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { REGISTER } from '../register/graphql-mutations';
 
 const UseRegister = () => {
+  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [register, result] = useMutation(REGISTER, {
     onError: () => {
@@ -28,7 +30,7 @@ const UseRegister = () => {
         },
       });
       setTimeout(() => {
-        window.location.href = '/';
+        navigate('/');
       }, 1000);
     }
   }, [result.data]);
