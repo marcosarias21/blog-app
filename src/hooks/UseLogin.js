@@ -29,6 +29,7 @@ const UseLogin = () => {
           horizontal: 'right',
         },
       });
+      localStorage.setItem('token-user-login', token);
       setTimeout(() => {
         if (token) navigate('/home');
       }, 1000);

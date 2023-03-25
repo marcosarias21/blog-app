@@ -11,10 +11,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
+const getAuth = () => {
+  const token = localStorage.getItem('user-token-login');
+  return token ? `bearer ${token}` : null;
+};
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
     uri: 'http://localhost:4000/',
+    headers: {
+      authorization: getAuth(),
+    },
   }),
 });
 
