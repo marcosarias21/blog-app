@@ -2,6 +2,7 @@ import {
   AppBar, Box, Container, Paper, Toolbar, Typography,
 } from '@mui/material';
 import { DropdownUser } from '../DropdownUser';
+import { SearchBar } from '../SearchBar';
 
 const Navbar = () => {
   return (
@@ -14,9 +15,7 @@ const Navbar = () => {
                 ArgPosting
               </Typography>
             </Box>
-            <Paper>
-              SearchBar
-            </Paper>
+              <SearchBar />
             <Box>
               <DropdownUser />
             </Box>
