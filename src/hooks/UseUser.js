@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { USER_LOGGIN } from '../users/graphql-query';
 
 const UseUser = () => {
