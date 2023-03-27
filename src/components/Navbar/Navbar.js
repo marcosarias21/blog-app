@@ -1,13 +1,13 @@
 import {
-  AppBar, Box, Container, Paper, Toolbar, Typography,
+  AppBar, Box, Container, Toolbar, Typography,
 } from '@mui/material';
 import { DropdownUser } from '../DropdownUser';
 import { SearchBar } from '../SearchBar';
 
-const Navbar = () => {
+const Navbar = ({ userLoggin }) => {
   return (
     <Box>
-      <AppBar position="fixed">
+      <AppBar position="static">
         <Container>
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Box>
@@ -17,7 +17,7 @@ const Navbar = () => {
             </Box>
               <SearchBar />
             <Box>
-              <DropdownUser />
+              <DropdownUser userLoggin={userLoggin} />
             </Box>
           </Toolbar>
         </Container>

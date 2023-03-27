@@ -8,14 +8,14 @@ import UseDropdown from '../../hooks/UseDropdown';
 import { ListNavItem } from '../ListNavItem';
 import { ItemMenu } from '../ItemMenu';
 
-const DropdownUser = () => {
+const DropdownUser = ({ userLoggin }) => {
   const { handleClick, handleClose, anchorEl } = UseDropdown();
 
   return (
     <Box>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} variant="contained" >
         <Typography variant='body2'>
-          NombreUser
+          {userLoggin?.username ? userLoggin?.username : 'Register'}
         </Typography>
       </Button>
         <Menu sx={{ padding: '200px' }} id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
@@ -33,7 +33,7 @@ const DropdownUser = () => {
               <ListItemIcon>
                 <LogoutIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText>Log-Out</ListItemText>
+              <ListItemText onClick={() => localStorage.clear()}>Log-Out</ListItemText>
             </MenuItem>
           </MenuList>
         </Menu>
