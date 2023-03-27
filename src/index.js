@@ -12,7 +12,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 const getAuth = () => {
-  const token = localStorage.getItem('user-token-login');
+  const token = localStorage.getItem('token-user-login');
   return token ? `bearer ${token}` : null;
 };
 
