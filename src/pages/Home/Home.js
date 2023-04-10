@@ -1,17 +1,13 @@
 import { Container } from '@mui/material';
-import { useEffect } from 'react';
 import { Navbar } from '../../components/Navbar';
 import { PostContent } from '../../components/PostContent';
 import UseUser from '../../hooks/UseUser';
+import UseSweetAlert from '../../hooks/UseSweetAlert';
 
 const Home = () => {
   const userLoggin = UseUser();
   const token = localStorage.getItem('token-user-login');
-
-  useEffect(() => {
-    if (!token) window.location.href = '/';
-  }, [token]);
-
+  UseSweetAlert(token);
   return (
     <>
     <Navbar userLoggin={userLoggin} />
