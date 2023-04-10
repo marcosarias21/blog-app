@@ -1,9 +1,9 @@
 import { ListItemText, MenuItem } from '@mui/material';
 
-const ItemMenu = ({ item }) => {
+const ItemMenu = ({ item, onClick }) => {
   return (
-    <MenuItem>
-      <ListItemText inset>{item}</ListItemText>
+    <MenuItem onClick={onClick}>
+      <ListItemText inset >{item}</ListItemText>
     </MenuItem>
   );
 };

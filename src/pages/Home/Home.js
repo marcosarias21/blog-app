@@ -3,6 +3,7 @@ import { Navbar } from '../../components/Navbar';
 import { PostContent } from '../../components/PostContent';
 import UseUser from '../../hooks/UseUser';
 import UseSweetAlert from '../../hooks/UseSweetAlert';
+import { ModalForm } from '../../components/ModalForm';
 
 const Home = () => {
   const userLoggin = UseUser();
@@ -16,6 +17,7 @@ const Home = () => {
         userLoggin?.posts?.map((post, i) => (
         <PostContent key={i} {...post} userLoggin={userLoggin}/>))
       }
+      <ModalForm />
     </Container>
     </>
   );

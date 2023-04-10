@@ -7,10 +7,13 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import UseDropdown from '../../hooks/UseDropdown';
 import { ListNavItem } from '../ListNavItem';
 import { ItemMenu } from '../ItemMenu';
+import { ModalForm } from '../ModalForm';
 import UseLogout from '../../hooks/UseLogout';
+import UseModal from '../../hooks/UseModal';
 
 const DropdownUser = ({ userLoggin }) => {
   const { handleClick, handleClose, anchorEl } = UseDropdown();
+  const { openModal, open, closeModal } = UseModal();
   const { handleLogout } = UseLogout();
 
   return (
@@ -24,7 +27,8 @@ const DropdownUser = ({ userLoggin }) => {
           <ListNavItem icon={<AccountBoxIcon />} text='My Stuffs'/>
           <MenuList sx={{ width: '249px' }}>
             <ItemMenu item='Profile' />
-            <ItemMenu item='Create Post' />
+            <ItemMenu item='Create Post' onClick={openModal} />
+            <ModalForm open={open} closeModal={closeModal} />
             <Divider />
             <ListNavItem icon={<DarkModeIcon />} text='View Options'/>
             <MenuItem>
