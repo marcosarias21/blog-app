@@ -7,9 +7,11 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import UseDropdown from '../../hooks/UseDropdown';
 import { ListNavItem } from '../ListNavItem';
 import { ItemMenu } from '../ItemMenu';
+import UseLogout from '../../hooks/UseLogout';
 
 const DropdownUser = ({ userLoggin }) => {
   const { handleClick, handleClose, anchorEl } = UseDropdown();
+  const { handleLogout } = UseLogout();
 
   return (
     <Box>
@@ -33,7 +35,7 @@ const DropdownUser = ({ userLoggin }) => {
               <ListItemIcon>
                 <LogoutIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText onClick={() => localStorage.clear()}>Log-Out</ListItemText>
+              <ListItemText onClick={handleLogout}>Log-Out</ListItemText>
             </MenuItem>
           </MenuList>
         </Menu>
