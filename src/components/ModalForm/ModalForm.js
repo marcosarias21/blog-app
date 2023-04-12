@@ -1,5 +1,5 @@
 import {
-  Box, Button, Modal, OutlinedInput, Typography,
+  Box, Button, Input, Modal, OutlinedInput, Typography,
 } from '@mui/material';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
@@ -39,8 +39,8 @@ const ModalForm = ({ open, closeModal }) => {
         <Box sx={style}>
           <Typography variant='h5' fontWeight='bold' textAlign='center' >Create Post</Typography>
           <form onSubmit={handleSubmit}>
-            <Box sx={{ display: 'grid', gap: 1 }}>
-              <OutlinedInput fullWidth id="outlined-basic" placeholder="Title" type='text' value={title} onChange={({ target }) => setTitle(target.value)} />
+            <Box sx={{ display: 'grid', gap: 2 }}>
+              <Input fullWidth id="outlined-basic" placeholder="Title" type='text' value={title} onChange={({ target }) => setTitle(target.value)} />
               <TextRichEditor description={description} setDescription={setDescription} />
             </Box>
             <Box sx={{ display: 'flex', mt: 2 }}>
