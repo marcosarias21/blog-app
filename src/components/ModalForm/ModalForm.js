@@ -1,10 +1,8 @@
 import {
-  Box, Button, Input, Modal, OutlinedInput, Typography,
+  Box, Button, Input, Modal, Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import { useMutation } from '@apollo/client';
 import { TextRichEditor } from '../TextRichEditor';
-import { CREATE_POST } from '../../posts/graphql-mutations';
 
 const style = {
   position: 'absolute',
@@ -18,8 +16,7 @@ const style = {
   p: 4,
 };
 
-const ModalForm = ({ open, closeModal }) => {
-  const [posts, results] = useMutation(CREATE_POST);
+const ModalForm = ({ open, closeModal, posts }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -31,6 +28,7 @@ const ModalForm = ({ open, closeModal }) => {
   return (
     <div>
       <Modal
+        sx={{ zIndex: 100 }}
         open={open}
         onClose={closeModal}
         aria-labelledby="modal-modal-title"
