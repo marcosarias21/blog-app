@@ -4,7 +4,7 @@ import {
 import { DropdownUser } from '../DropdownUser';
 import { SearchBar } from '../SearchBar';
 
-const Navbar = ({ userLoggin }) => {
+const Navbar = ({ userLoggin, openModal }) => {
   return (
     <Box>
       <AppBar position="static">
@@ -17,7 +17,7 @@ const Navbar = ({ userLoggin }) => {
             </Box>
               <SearchBar />
             <Box>
-              <DropdownUser userLoggin={userLoggin} />
+              <DropdownUser userLoggin={userLoggin} openModal={openModal} />
             </Box>
           </Toolbar>
         </Container>
