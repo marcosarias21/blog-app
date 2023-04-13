@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { REGISTER } from '../register/graphql-mutations';
 
-const UseRegister = () => {
+const useRegister = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [register, result] = useMutation(REGISTER, {
@@ -38,4 +38,4 @@ const UseRegister = () => {
   return { register, result };
 };
 
-export default UseRegister;
+export default useRegister;

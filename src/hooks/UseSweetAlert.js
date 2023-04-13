@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 
-const UseSweetAlert = (token) => {
+const useSweetAlert = (token) => {
   useEffect(() => {
     if (!token) {
       Swal.fire({
@@ -16,4 +16,4 @@ const UseSweetAlert = (token) => {
   }, [token]);
 };
 
-export default UseSweetAlert;
+export default useSweetAlert;

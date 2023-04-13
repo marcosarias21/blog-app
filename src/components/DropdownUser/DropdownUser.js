@@ -4,14 +4,14 @@ import {
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import UseDropdown from '../../hooks/UseDropdown';
+import useDropdown from '../../hooks/useDropdown';
 import { ListNavItem } from '../ListNavItem';
 import { ItemMenu } from '../ItemMenu';
-import UseLogout from '../../hooks/UseLogout';
+import useLogout from '../../hooks/useLogout';
 
 const DropdownUser = ({ userLoggin, openModal }) => {
-  const { handleClick, handleClose, anchorEl } = UseDropdown();
-  const { handleLogout } = UseLogout();
+  const { handleClick, handleClose, anchorEl } = useDropdown();
+  const { handleLogout } = useLogout();
 
   return (
     <Box>

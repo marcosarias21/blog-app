@@ -3,7 +3,7 @@ import { useSnackbar } from 'notistack';
 import { useEffect } from 'react';
 import { LOGIN } from '../login/graphql-mutations';
 
-const UseLogin = () => {
+const useLogin = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [login, result] = useMutation(LOGIN, {
     onError: () => {
@@ -36,4 +36,4 @@ const UseLogin = () => {
   return { login, result };
 };
 
-export default UseLogin;
+export default useLogin;

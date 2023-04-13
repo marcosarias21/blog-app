@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
+import useLogin from '../../hooks/useLogin';
 import { LoginForm } from '../../components/LoginForm';
-import UseLogin from '../../hooks/UseLogin';
 
 const Login = () => {
-  const { login } = UseLogin();
+  const { login } = useLogin();
 
   return (
     <Box sx={{

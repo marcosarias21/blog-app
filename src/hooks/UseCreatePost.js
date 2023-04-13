@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 import Swal from 'sweetalert2';
 import { CREATE_POST } from '../posts/graphql-mutations';
 
-const UseCreatePost = () => {
+const useCreatePost = () => {
   const [posts, results] = useMutation(CREATE_POST, {
     onCompleted: () => {
       Swal.fire({
@@ -17,4 +17,4 @@ const UseCreatePost = () => {
   return { posts };
 };
 
-export default UseCreatePost;
+export default useCreatePost;

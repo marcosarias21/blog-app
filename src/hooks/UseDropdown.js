@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const UseDropdown = () => {
+const useDropdown = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -12,4 +12,4 @@ const UseDropdown = () => {
   return { handleClick, handleClose, anchorEl };
 };
 
-export default UseDropdown;
+export default useDropdown;
