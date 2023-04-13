@@ -1,18 +1,18 @@
 import { Container } from '@mui/material';
 import { Navbar } from '../../components/Navbar';
 import { PostContent } from '../../components/PostContent';
-import UseUser from '../../hooks/UseUser';
-import UseCreatePost from '../../hooks/UseCreatePost';
-import UseSweetAlert from '../../hooks/UseSweetAlert';
+import useUser from '../../hooks/useUser';
+import useCreatePost from '../../hooks/useCreatePost';
+import useSweetAlert from '../../hooks/useSweetAlert';
 import { ModalForm } from '../../components/ModalForm';
-import UseModal from '../../hooks/UseModal';
+import useModal from '../../hooks/useModal';
 
 const Home = () => {
-  const userLoggin = UseUser();
-  const { posts } = UseCreatePost();
-  const { openModal, open, closeModal } = UseModal();
+  const userLoggin = useUser();
+  const { posts } = useCreatePost();
+  const { openModal, open, closeModal } = useModal();
   const token = localStorage.getItem('token-user-login');
-  UseSweetAlert(token);
+  useSweetAlert(token);
   return (
     <>
     <Navbar userLoggin={userLoggin} open={open} openModal={openModal} />

@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import { RegisterForm } from '../../components/RegisterForm';
-import UseRegister from '../../hooks/UseRegister';
+import useRegister from '../../hooks/useRegister';
 
 const RegisterPage = () => {
-  const { register } = UseRegister();
+  const { register } = useRegister();
   console.log(register);
   return (
    <Box sx={{

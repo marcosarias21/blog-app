@@ -1,4 +1,4 @@
-const UseLogout = () => {
+const useLogout = () => {
   const handleLogout = () => {
     localStorage.clear();
     window.location.href = '';
@@ -6,4 +6,4 @@ const UseLogout = () => {
   return { handleLogout };
 };
 
-export default UseLogout;
+export default useLogout;
