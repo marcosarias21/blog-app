@@ -1,20 +1,17 @@
 import {
   Box, Container, Divider, ListItem, ListItemIcon, ListItemText, Typography,
 } from '@mui/material';
-import { convertFromRaw } from 'draft-js';
 import { useNavigate } from 'react-router-dom';
-import parse from 'html-react-parser';
-import { stateToHTML } from 'draft-js-export-html';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { useEffect, useState } from 'react';
 import { usePostBook } from '../../store/postStore';
+import useParseText from '../../hooks/useParseText';
 
 const PostContent = ({
   title, description, userLoggin, comments,
 }) => {
   const navigate = useNavigate();
   const savePost = usePostBook((state) => state.savePost);
-  const [descriptionRaw, setDescriptionRaw] = useState();
+  const descriptionRaw = useParseText(description);
 
   const handlePost = () => {
     savePost({
@@ -22,14 +19,6 @@ const PostContent = ({
     });
     navigate('/post');
   };
-
-  useEffect(() => {
-    const newDescription = JSON.parse(description);
-    const convertDescription = convertFromRaw(newDescription);
-    const myHtml = stateToHTML(convertDescription);
-    const parseHtml = parse(myHtml);
-    setDescriptionRaw(parseHtml);
-  }, [description]);
 
   return (
     <Container onClick={() => handlePost()} sx={{ border: '1px solid lightgray', cursor: 'pointer', ':hover': { border: '1px solid gray' } }}>
