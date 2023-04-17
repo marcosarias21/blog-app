@@ -15,6 +15,9 @@ export const USER_LOGGIN = gql`
       posts{
         description
         title
+        comments {
+          message
+        }
       }
     }
   }
