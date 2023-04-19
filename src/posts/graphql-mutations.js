@@ -8,3 +8,11 @@ mutation($title: String!, $description: String!) {
   }
 }
 `;
+
+export const ADD_COMMENTS = gql`
+mutation($createCommentId: ID!, $message: String!) {
+  createComment(id: $createCommentId, message: $message) {
+    message
+  }
+}
+`;
