@@ -7,7 +7,7 @@ import { usePostBook } from '../../store/postStore';
 import useParseText from '../../hooks/useParseText';
 
 const PostContent = ({
-  title, description, userLoggin, comments,
+  title, description, userLoggin, comments, id,
 }) => {
   const navigate = useNavigate();
   const savePost = usePostBook((state) => state.savePost);
@@ -15,7 +15,7 @@ const PostContent = ({
 
   const handlePost = () => {
     savePost({
-      title, descriptionRaw, userLoggin, comments,
+      title, descriptionRaw, userLoggin, comments, id,
     });
     navigate('/post');
   };

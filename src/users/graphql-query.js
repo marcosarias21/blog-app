@@ -11,8 +11,10 @@ export const ALL_USERS = gql`
 export const USER_LOGGIN = gql`
   query{
     me {
+      id
       username
       posts{
+        id
         description
         title
         comments {

@@ -26,7 +26,7 @@ const ModalForm = ({ open, closeModal, posts }) => {
   };
 
   return (
-    <div>
+    <Box>
       <Modal
         sx={{ zIndex: 100 }}
         open={open}
@@ -39,7 +39,7 @@ const ModalForm = ({ open, closeModal, posts }) => {
           <form onSubmit={handleSubmit}>
             <Box sx={{ display: 'grid', gap: 2 }}>
               <Input fullWidth id="outlined-basic" placeholder="Title" type='text' value={title} onChange={({ target }) => setTitle(target.value)} />
-              <TextRichEditor description={description} setDescription={setDescription} />
+              <TextRichEditor description={description} setDescription={setDescription} placeholder='Write description about post...' />
             </Box>
             <Box sx={{ display: 'flex', mt: 2 }}>
               <Box sx={{ flexGrow: 1 }} >
@@ -52,7 +52,7 @@ const ModalForm = ({ open, closeModal, posts }) => {
           </form>
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 };
 

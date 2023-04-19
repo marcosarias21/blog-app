@@ -4,9 +4,8 @@ import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const TextRichEditor = ({ setDescription }) => {
+const TextRichEditor = ({ setDescription, placeholder }) => {
   const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-  console.log(editorState);
   const onEditorStateChange = (e) => {
     setEditorState(e);
     const contentState = e.getCurrentContent();
@@ -16,7 +15,7 @@ const TextRichEditor = ({ setDescription }) => {
 
   return (
     <Box>
-        <Editor onEditorStateChange={onEditorStateChange} toolbarClassName='toolbarClassName' wrapperClassName='wrapperClassName' editorClassName='editorClassName' placeholder='Write description post...' />
+        <Editor onEditorStateChange={onEditorStateChange} toolbarClassName='toolbarClassName' wrapperClassName='wrapperClassName' editorClassName='editorClassName' placeholder={placeholder} />
     </Box>
   );
 };
