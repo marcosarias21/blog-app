@@ -9,6 +9,7 @@ import useParseText from '../../hooks/useParseText';
 const PostContent = ({
   title, description, userLoggin, comments, id,
 }) => {
+  console.log(id);
   const navigate = useNavigate();
   const savePost = usePostBook((state) => state.savePost);
   const descriptionRaw = useParseText(description);

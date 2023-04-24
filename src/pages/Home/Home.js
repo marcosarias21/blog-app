@@ -9,6 +9,7 @@ import useModal from '../../hooks/useModal';
 
 const Home = () => {
   const userLoggin = useUser();
+  console.log(userLoggin);
   const { posts } = useCreatePost();
   const { openModal, open, closeModal } = useModal();
   const token = localStorage.getItem('token-user-login');
@@ -17,7 +18,9 @@ const Home = () => {
     <>
     <Navbar userLoggin={userLoggin} open={open} openModal={openModal} />
     <ModalForm open={open} closeModal={closeModal} posts={posts} />
-    <Container sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Container sx={{
+      display: 'flex', flexDirection: 'column', gap: 2, mt: 3,
+    }}>
       {
         userLoggin?.posts?.map((post, i) => (
         <PostContent key={i} {...post} userLoggin={userLoggin}/>))
