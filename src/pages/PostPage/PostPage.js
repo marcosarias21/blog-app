@@ -15,10 +15,11 @@ const PostPage = () => {
   const [id, setId] = useState();
   console.log(id);
   const { post } = usePostBook();
+  console.log(post);
 
   useEffect(() => {
     setId(post[0]?.id);
-  }, []);
+  }, [id]);
 
   const addMessage = () => {
     comments({ variables: { createCommentId: id, message: description } });

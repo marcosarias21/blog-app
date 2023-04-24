@@ -5,6 +5,7 @@ import { USER_LOGGIN } from '../users/graphql-query';
 const useUser = () => {
   const [userLoggin, setUserLoggin] = useState();
   const { data } = useQuery(USER_LOGGIN);
+  console.log(data);
   useEffect(() => {
     setUserLoggin(data?.me);
   }, [data]);
