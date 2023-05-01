@@ -13,9 +13,7 @@ const PostPage = () => {
   const [description, setDescription] = useState('');
   const [comments, results] = useMutation(ADD_COMMENTS);
   const [id, setId] = useState();
-  console.log(id);
   const { post } = usePostBook();
-  console.log(post);
 
   useEffect(() => {
     setId(post[0]?.id);
@@ -37,7 +35,9 @@ const PostPage = () => {
         }}>
           <form>
             <TextRichEditor setDescription={setDescription} placeholder='Create a message...' />
-            <Button onClick={() => addMessage()}>asdsadsa</Button>
+            <Box sx={{ display: 'flex', justifyContent: 'end' }}>
+              <Button variant='contained' onClick={() => addMessage()}>Comment</Button>
+            </Box>
           </form>
         </Box>
       </Container>

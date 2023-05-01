@@ -20,6 +20,10 @@ export const USER_LOGGIN = gql`
         comments {
           message
         }
+        likes{
+          user
+          id
+        }
       }
     }
   }
