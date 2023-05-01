@@ -9,7 +9,6 @@ import useModal from '../../hooks/useModal';
 
 const Home = () => {
   const userLoggin = useUser();
-  console.log(userLoggin);
   const { posts } = useCreatePost();
   const { openModal, open, closeModal } = useModal();
   const token = localStorage.getItem('token-user-login');

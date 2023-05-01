@@ -16,3 +16,11 @@ mutation($createCommentId: ID!, $message: String!) {
   }
 }
 `;
+
+export const ADD_LIKE = gql`
+mutation($addLikePostId: ID!){
+  addLikePost(id: $addLikePostId) {
+    user
+    id
+  }
+}`;
