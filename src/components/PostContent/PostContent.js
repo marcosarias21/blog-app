@@ -6,6 +6,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { usePostBook } from '../../store/postStore';
 import useParseText from '../../hooks/useParseText';
+import { ListNavItem } from '../ListNavItem';
 
 const PostContent = ({
   title, description, userLoggin, comments, id, likes,
@@ -27,17 +28,10 @@ const PostContent = ({
       <Typography variant='h5' fontWeight='bold'>{title}</Typography>
       <Divider />
       <Box>
-        {descriptionRaw?.[0]}
+        {descriptionRaw}
       </Box>
-        <List sx={{ width: '25%', display: 'flex' }}>
-          <ListItem>
-            <ListItemIcon sx={{ minWidth: 0 }}>
-              <MailOutlineIcon />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography variant='body2'>{comments.length} comments</Typography>
-            </ListItemText>
-          </ListItem>
+        <List sx={{ width: '35%', display: 'flex' }}>
+          <ListNavItem icon={<MailOutlineIcon />} text={`${comments?.length} comments`} />
           <ListItem>
             <ListItemIcon sx={{ minWidth: 0 }}>
               <ThumbUpOffAltIcon />

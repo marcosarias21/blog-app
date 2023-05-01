@@ -1,19 +1,14 @@
 import {
-  Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography,
+  Box, Divider, List, ListItem, Typography,
 } from '@mui/material';
-import { useMutation } from '@apollo/client';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { ADD_LIKE } from '../../posts/graphql-mutations';
+import { ListNavItem } from '../ListNavItem';
+import { ButtonLike } from '../ButtonLike';
 
 const PostDetail = ({
-  title, comments, descriptionRaw, userLoggin, likes, id,
+  title, comments, descriptionRaw, userLoggin, likes, addLike,
 }) => {
-  const [likePost, results] = useMutation(ADD_LIKE);
-
-  const addLike = () => {
-    likePost({ variables: { addLikePostId: id } });
-  };
+  const userLikeValidation = likes.some(like => like.user === userLoggin?.username);
 
   return (
     <Box>
@@ -21,26 +16,12 @@ const PostDetail = ({
       <Typography variant='h5' fontWeight='bold'>{title}</Typography>
       <Divider />
       <Box>
-        {descriptionRaw?.[0]}
+        {descriptionRaw}
       </Box>
-      <List sx={{ width: '25%', display: 'flex' }}>
-          <ListItem sx={{ cursor: 'default' }}>
-            <ListItemIcon sx={{ minWidth: 0 }}>
-              <MailOutlineIcon />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography variant='body2'>{comments.length} comments</Typography>
-            </ListItemText>
-          </ListItem>
+      <List sx={{ display: 'flex', width: '30%' }}>
+          <ListNavItem icon={<MailOutlineIcon />} text={`${comments?.length} comments`} />
           <ListItem>
-            <ListItemButton onClick={() => addLike()}>
-              <ListItemIcon sx={{ minWidth: 0 }}>
-                <ThumbUpOffAltIcon />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography>{likes.length} likes</Typography>
-              </ListItemText>
-            </ListItemButton>
+            <ButtonLike likes={likes} onClick={addLike} userLikeValidation={userLikeValidation} />
           </ListItem>
         </List>
     </Box>
