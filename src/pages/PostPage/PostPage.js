@@ -7,17 +7,18 @@ import useUser from '../../hooks/useUser';
 import { TextRichEditor } from '../../components/TextRichEditor';
 import useAddComments from '../../hooks/useAddComments';
 import useLikePost from '../../hooks/useLikePost';
+import useGetPostById from '../../hooks/useGetPostById';
 
 const PostPage = () => {
   const userLoggin = useUser();
   const [description, setDescription] = useState('');
   const [id, setId] = useState();
-  const { post } = usePostBook();
+  const { postId } = usePostBook();
+  const { post } = useGetPostById(postId);
   const { likePost } = useLikePost();
   const { comments } = useAddComments();
-
   useEffect(() => {
-    setId(post[0]?.id);
+    setId(postId);
   }, [id]);
 
   const addMessage = () => {
@@ -34,8 +35,8 @@ const PostPage = () => {
       <Container sx={{
         border: '1px solid lightgray', cursor: 'pointer', mt: 5, ':hover': { border: '1px solid gray' },
       }}>
-        {post.map(item => <PostDetail key={item.title} {...item}
-          addLike={addLike} />)}
+        {post?.map(item => <PostDetail key={item.title} {...item}
+          addLike={addLike} userLoggin={userLoggin} />)}
         <Box sx={{
           border: '1px solid lightgray', borderRadius: 1, my: 2, p: 1,
         }}>
