@@ -12,13 +12,11 @@ const PostContent = ({
   title, description, userLoggin, comments, id, likes,
 }) => {
   const navigate = useNavigate();
-  const savePost = usePostBook((state) => state.savePost);
+  const saveId = usePostBook((state) => state.saveId);
   const descriptionRaw = useParseText(description);
 
   const handlePost = () => {
-    savePost({
-      title, descriptionRaw, userLoggin, comments, id, likes,
-    });
+    saveId(id);
     navigate('/post');
   };
 
