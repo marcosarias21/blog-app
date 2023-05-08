@@ -29,7 +29,7 @@ const useLogin = () => {
       });
       localStorage.setItem('token-user-login', token);
       setTimeout(() => {
-        if (token) window.location.href = '/home';
+        if (token) window.location.href = '/';
       }, 1000);
     }
   }, [result.data]);

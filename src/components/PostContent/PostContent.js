@@ -21,7 +21,9 @@ const PostContent = ({
   };
 
   return (
-    <Container onClick={() => handlePost()} sx={{ border: '1px solid lightgray', cursor: 'pointer', ':hover': { border: '1px solid gray' } }}>
+    <Container onClick={() => handlePost()} sx={{
+      backgroundColor: '#FFF', border: '1px solid lightgray', cursor: 'pointer', ':hover': { border: '1px solid gray' },
+    }}>
       <Typography fontSize={14} variant='span'>Posted by u/<Typography variant='span'>{userLoggin.username}</Typography></Typography>
       <Typography variant='h5' fontWeight='bold'>{title}</Typography>
       <Divider />
