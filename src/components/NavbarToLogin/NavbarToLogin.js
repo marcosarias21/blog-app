@@ -1,23 +1,22 @@
 import {
-  AppBar, Box, Container, Toolbar, Typography,
+  AppBar, Box, Button, Container, Toolbar, Typography,
 } from '@mui/material';
-import { DropdownUser } from '../DropdownUser';
 import { SearchBar } from '../SearchBar';
 
-const Navbar = ({ userLoggin, openModal }) => {
+const NavbarToLogin = ({ openModal }) => {
   return (
     <Box>
-      <AppBar position="static" color='default' >
+      <AppBar position="static" color='default'>
         <Container>
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Box>
-              <Typography variant="h6" component="div">
+              <Typography variant="h5" fontWeight='bold' color='primary'>
                 ArgPosting
               </Typography>
             </Box>
               <SearchBar />
             <Box>
-              <DropdownUser userLoggin={userLoggin} openModal={openModal} />
+              <Button variant='outlined' onClick={openModal}>Login</Button>
             </Box>
           </Toolbar>
         </Container>
@@ -26,4 +25,4 @@ const Navbar = ({ userLoggin, openModal }) => {
   );
 };
 
-export default Navbar;
+export default NavbarToLogin;
