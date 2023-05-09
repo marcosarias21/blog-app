@@ -5,7 +5,8 @@ query($id: ID!){
   getPostById(id: $id) {
     id
     author
-    title    
+    title
+    description    
   }
 }
 `;
