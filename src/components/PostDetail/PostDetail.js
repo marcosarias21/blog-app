@@ -10,7 +10,7 @@ const PostDetail = ({
   title, comments, descriptionRaw, userLoggin, likes, addLike, author,
 }) => {
   const [isLike, setIsLike] = useState(false);
-  const userLikeValidation = likes.some(like => like.user === userLoggin?.username);
+  const userLikeValidation = likes?.some(like => like.user === userLoggin?.username);
   console.log(isLike);
 
   useEffect(() => {
