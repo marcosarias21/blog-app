@@ -6,7 +6,14 @@ query($id: ID!){
     id
     author
     title
-    description    
+    description
+    comments{
+      message
+      user
+    } 
+    likes{
+      user
+    }
   }
 }
 `;

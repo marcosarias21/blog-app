@@ -31,6 +31,9 @@ const PostDetail = ({
             <ButtonLike likes={likes} onClick={addLike} userLikeValidation={userLikeValidation} />
           </ListItem>
         </List>
+      <Box>
+        {comments?.map(comment => '')}
+      </Box>
     </Box>
   );
 };
