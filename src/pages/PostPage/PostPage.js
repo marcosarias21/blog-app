@@ -3,8 +3,9 @@ import { Box, Button, Container } from '@mui/material';
 import { usePostBook } from '../../store/postStore';
 import { PostDetail } from '../../components/PostDetail';
 import { Navbar } from '../../components/Navbar';
-import useUser from '../../hooks/useUser';
+import { CommentsComponent } from '../../components/CommentsComponent';
 import { TextRichEditor } from '../../components/TextRichEditor';
+import useUser from '../../hooks/useUser';
 import useAddComments from '../../hooks/useAddComments';
 import useLikePost from '../../hooks/useLikePost';
 import useGetPostById from '../../hooks/useGetPostById';
@@ -17,6 +18,7 @@ const PostPage = () => {
   const { post } = useGetPostById(postId);
   const { likePost } = useLikePost();
   const { comments } = useAddComments();
+  console.log(post?.comments);
   useEffect(() => {
     setId(postId);
   }, [id]);
@@ -44,6 +46,9 @@ const PostPage = () => {
           <Box sx={{ display: 'flex', justifyContent: 'end' }}>
             <Button variant='contained' onClick={() => addMessage()}>Comment</Button>
           </Box>
+        </Box>
+        <Box>
+          {post[0]?.comments?.map((comment, i) => <CommentsComponent key={i} {...comment} />)}
         </Box>
       </Container>
     </Box>
