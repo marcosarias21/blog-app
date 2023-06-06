@@ -37,7 +37,7 @@ const PostContent = ({
               <ThumbUpOffAltIcon />
             </ListItemIcon>
             <ListItemText>
-              <Typography>{likes.length} likes</Typography>
+              <Typography>{likes?.length} likes</Typography>
             </ListItemText>
           </ListItem>
         </List>

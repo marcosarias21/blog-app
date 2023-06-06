@@ -18,7 +18,7 @@ const PostPage = () => {
   const { post } = useGetPostById(postId);
   const { likePost } = useLikePost();
   const { comments } = useAddComments();
-  console.log(post?.comments);
+  console.log(post);
   useEffect(() => {
     setId(postId);
   }, [id]);
@@ -48,7 +48,7 @@ const PostPage = () => {
           </Box>
         </Box>
         <Box>
-          {post[0]?.comments?.map((comment, i) => <CommentsComponent key={i} {...comment} />)}
+          {post?.map((p, i) => <CommentsComponent key={i} comments={p.comments} />)}
         </Box>
       </Container>
     </Box>
