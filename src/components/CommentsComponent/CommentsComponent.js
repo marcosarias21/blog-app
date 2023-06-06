@@ -2,15 +2,16 @@ import { Box, Typography } from '@mui/material';
 import useParseCommentsText from '../../hooks/useParseCommentsText';
 
 const CommentsComponent = ({ comments }) => {
-  const { commentsRaw } = useParseCommentsText(comments?.map(com => com.message));
+  const { commentsRaw } = useParseCommentsText(comments);
+  console.log(commentsRaw);
 
   return (
     <Box>
       {
-        comments?.map((comment, i) => (
+        commentsRaw?.map((comment, i) => (
         <Box key={i}>
           <Typography variant='body2' fontWeight='bold' >user/{comment.user}</Typography>
-            {commentsRaw[i]}
+            {comment.message}
         </Box>
         ))
       }
