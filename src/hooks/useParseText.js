@@ -9,7 +9,9 @@ const useParseText = (description) => {
   useEffect(() => {
     const newDescription = JSON.parse(description);
     const convertDescription = convertFromRaw(newDescription);
+    console.log(convertDescription);
     const myHtml = stateToHTML(convertDescription);
+    console.log(myHtml);
     const parseHtml = parse(myHtml);
     setDescriptionRaw(parseHtml);
   }, [description]);
